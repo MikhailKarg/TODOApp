@@ -1,0 +1,16 @@
+﻿@model TODOApp.Models.User
+@{
+    ViewData["Title"] = "Enter your Email:";
+}
+
+<h2>Email</h2>
+
+<form asp-action="Index" method="post">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Please, enter your Email</label>
+        <input type="email" class="form-control" name="UserEmail" placeholder="Email">
+        <small id="emailHelp" class="form-text text-muted">Mail is needed to synchronize tasks</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>

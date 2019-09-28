@@ -1,0 +1,36 @@
+﻿@model TODOApp.Models.Task
+@{
+    ViewData["Title"] = "Update task";
+}
+
+<h2>Update task</h2>
+
+<form asp-action="UpdateTask" method="post">
+    <div class="form-group">
+        <label for="TaskDescription">Task description</label>
+        <input asp-for="TaskDescription" type="text" class="form-control" id="TaskDescription" value=@Model.TaskDescription />
+    </div>
+    <div class="form-group">
+        <label for="Limit">Task limit (day)</label>
+        <input asp-for="TaskLimit" type="number" class="form-control" id="Limit" value="@Model.TaskLimit">
+    </div>
+    <div class="form-group">
+        <label for="TaskStatus">Done</label>
+        @if (Model.TaskStatus)
+        {
+            <div><input asp-for="TaskStatus" name="TaskStatus" id="TaskStatus" type="checkbox" checked></div>
+        }
+        else
+        {
+            <input asp-for="TaskStatus" name="TaskStatus" id="TaskStatus" type="checkbox">
+        }
+
+    </div>
+    <div class="form-group">
+        <input asp-for="Id" type="hidden" class="form-control" id="Id" value="@Model.Id">
+    </div>
+    <div class="form-group">
+        <input asp-for="UserId" type="hidden" class="form-control" name="UserId" value=@Model.UserId>
+    </div>
+    <button type="submit" class="btn btn-primary">Update task</button>
+</form>

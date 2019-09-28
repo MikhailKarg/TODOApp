@@ -1,0 +1,23 @@
+﻿
+@model TODOApp.Models.Task
+@{
+    ViewData["Title"] = "AddTask";
+}
+
+<h2>Please, add new task</h2>
+
+<form asp-action="AddTask" method="post">
+    <div class="form-group">
+        <label for="Email">Task description</label>
+        <input asp-for="TaskDescription" type="text" class="form-control" id="Email" placeholder="Enter description">
+    </div>
+    <div class="form-group">
+        <label for="Limit">Task limit (day)</label>
+        <input asp-for="TaskLimit" type="number" class="form-control" id="Limit" placeholder="Enter limit">
+    </div>
+    <input asp-for="UserId" type="hidden" class="form-control" name="UserId"  value=@Model.UserId>
+    <input asp-for="TaskStatus" type="hidden" class="form-control" name="TaskStatus" value="0">
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
